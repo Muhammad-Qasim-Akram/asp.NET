@@ -1,0 +1,31 @@
+GET http://localhost:5205/games
+
+###
+GET http://localhost:5205/games/7
+
+###
+POST  http://localhost:5205/games
+Content-Type: application/json
+
+{
+    "name" :"Spider-man no way home",
+    "genre" : "Openworld",
+    "price" : 45.23,
+    "releasedate" : "2026-04-15"
+
+}
+
+### 
+PUT http://localhost:5205/games/7
+Content-Type: application/json
+
+{
+     "name" :"Spider-man no way home",
+    "genre" : "Adventure",
+    "price" : 55.23,
+    "releasedate" : "2027-04-15"
+
+}
+
+###
+DELETE  http://localhost:5205/games/1 
