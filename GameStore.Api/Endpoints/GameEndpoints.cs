@@ -98,7 +98,6 @@ public static class GameEndpoints
         group.MapDelete("/{id}", (int id) =>
         {
             games.RemoveAll(games => games.Id == id);
-
             return Results.NoContent();
         });
     }
