@@ -1,5 +1,6 @@
 using GameStore.Api.Dtos;
 using GameStore.Api.Data;
+using GameStore.Api.Models;
 
 namespace GameStore.Api.Endpoints;
 public static class GameEndpoints
@@ -64,11 +65,9 @@ public static class GameEndpoints
         group.MapPost("/", (CreateGameDto newgame,GameStoreContext dbcontext) =>
         {
             Game game = new(
-                games.Count + 1,
-                newgame.Name,
-                newgame.Genre,
-                newgame.Price,
-                newgame.ReleaseDate
+              Name = newgame.Name,
+                
+              
             );
             games.Add(game);
 
