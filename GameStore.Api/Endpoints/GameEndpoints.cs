@@ -1,6 +1,7 @@
 using GameStore.Api.Dtos;
-namespace GameStore.Api.Endpoints;
+using GameStore.Api.Data;
 
+namespace GameStore.Api.Endpoints;
 public static class GameEndpoints
 {
     const string GetGameEndpoint = "GetGame";
@@ -60,9 +61,9 @@ public static class GameEndpoints
         }).WithName(GetGameEndpoint);
 
         //post/games
-        group.MapPost("/", (CreateGameDto newgame) =>
+        group.MapPost("/", (CreateGameDto newgame,GameStoreContext dbcontext) =>
         {
-            GameDto game = new(
+            Game game = new(
                 games.Count + 1,
                 newgame.Name,
                 newgame.Genre,
