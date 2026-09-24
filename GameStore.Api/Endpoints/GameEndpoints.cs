@@ -64,15 +64,28 @@ public static class GameEndpoints
         //post/games
         group.MapPost("/", (CreateGameDto newgame,GameStoreContext dbcontext) =>
         {
-            Game game = new(
+            Game game = new()
+           { 
               Name = newgame.Name,
-                
-              
+              GenreId = newgame.GenreId,
+              Price = newgame.Price,
+              ReleaseDate = newgame.ReleaseDate
+          };
+        
+            dbcontext.Games.Add(game);
+            dbcontext.SaveChanges();
+ 
+            GameDetailsDto gameDto = new (
+                game.Id,
+                game.Name,
+                game.GenreId,
+                game.Price,
+                game.ReleaseDate
             );
-            games.Add(game);
 
-            return Results.CreatedAtRoute(GetGameEndpoint, new { id = game.Id }, game);
+            return Results.CreatedAtRoute(GetGameEndpoint, new { id = gameDto.Id }, gameDto);
         });
+
 
         //put /games/1
         group.MapPut("/{id}", (int id, UpdateGameDto updatedGame) =>
