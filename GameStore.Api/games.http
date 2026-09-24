@@ -1,31 +1,30 @@
 GET http://localhost:5205/games
 
 ###
-GET http://localhost:5205/games/1
+GET http://localhost:5205/games/3
+
 
 ###
 POST  http://localhost:5205/games
 Content-Type: application/json
 
-{
-    "name" :"Spider-man no way home",
-    "genreId" : 3,
-    "price" : 45.23,
-    "releasedate" : "2026-04-15"
+{ "name": "Elden Ring", "genreId": 1, "price": 59.99, "releasedate": "2022-02-25" }
+ 
 
-}
+
+
 
 ### 
-PUT http://localhost:5205/games/7
+PUT http://localhost:5205/games/2
 Content-Type: application/json
 
 {
-     "name" :"Spider-man no way home",
-    "genre" : "Adventure",
+     "name" :"Wolverine",
+    "genreId" : 2,
     "price" : 55.23,
-    "releasedate" : "2027-04-15"
+    "releasedate" : "2022-04-15"
 
 }
 
 ###
-DELETE  http://localhost:5205/games/1 
+DELETE  http://localhost:5205/games/3
