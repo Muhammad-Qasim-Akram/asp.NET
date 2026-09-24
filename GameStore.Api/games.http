@@ -1,7 +1,7 @@
 GET http://localhost:5205/games
 
 ###
-GET http://localhost:5205/games/7
+GET http://localhost:5205/games/1
 
 ###
 POST  http://localhost:5205/games
@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
     "name" :"Spider-man no way home",
-    "genre" : "Openworld",
+    "genreId" : 3,
     "price" : 45.23,
     "releasedate" : "2026-04-15"
 
